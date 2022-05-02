@@ -11,7 +11,7 @@ def read_settings(settings_filename:str='settings.json'):
         return settings_data
 
 def main():
-    '''
+    help_string = '''
     Simple console app that uses python's image library to try to convert all files in the folder of given filetype to new filetype.
     
     Also provides thumbnail, medium and large file size conservions for platforms like WordPress
@@ -22,10 +22,10 @@ def main():
     -s | --small                Generates Small file (default 300x300) with suffix _s
     -m | --medium               Generates Medium file (default 300x300) with suffix _m
     -l | --large                Generates Large file (default 1024x1024) with suffix _l
-    -st:'%size%'                Define custom square size for thumbnail file
-    -ss:'%size%'                Define custom square size for small file
-    -sm:'%size%'                Define custom square size for medium file
-    -sl:'%size%'                Define custom square size for large file
+    st:'%size%'                Define custom square size for thumbnail file
+    ss:'%size%'                Define custom square size for small file
+    sm:'%size%'                Define custom square size for medium file
+    sl:'%size%'                Define custom square size for large file
     from:'%file_type%'          Converts files from the requested type e.g.: from:'.jpg'
     to:'%file_type%'            Converts files to the requested type e.g.: to:'.png'
     f:'%directory_path%'        Allow you to define the path to the directory where you want to convert
@@ -33,12 +33,14 @@ def main():
     '''
     
     settings_data = read_settings()
+    if not settings_data:
+        print('ERROR: settings.json FILE NOT FOUND')
         
     # DEFAULT SETTINGS
-    THUMB_SIZE = (settings_data['THUMB_W'], settings_data['THUMB_H'])
-    SMALL_SIZE = (settings_data['SMALL_W'], settings_data['SMALL_H'])
-    MEDIUM_SIZE = (settings_data['MEDIUM_W'], settings_data['MEDIUM_H'])
-    LARGE_SIZE = (settings_data['LARGE_W'], settings_data['LARGE_H'])
+    thumb_size = (settings_data['THUMB_W'], settings_data['THUMB_H'])
+    small_size = (settings_data['SMALL_W'], settings_data['SMALL_H'])
+    medium_size = (settings_data['MEDIUM_W'], settings_data['MEDIUM_H'])
+    large_size = (settings_data['LARGE_W'], settings_data['LARGE_H'])
 
     file_type_from = settings_data['FILE_TYPE_FROM']
     file_type_to = settings_data['FILE_TYPE_TO']
@@ -57,7 +59,9 @@ def main():
 
     if len(sys.argv) > 0:
         for arg in sys.argv[1:]:
-            print(arg)
+            if arg in ['-h', '--help']:
+                print(help_string)
+                return
             if arg in ['-t', '--thumb']:
                 make_thumb = True
             elif arg in ['-s', '--small']:
@@ -67,17 +71,25 @@ def main():
             elif arg in ['--large','-l']:
                 make_large = True
             elif arg[0:3] == 'st:':
-                size_t = int(arg.removeprefix('st:').strip())
-                THUMB_SIZE = (size_t, size_t)
+                size_t = int(arg.removeprefix('st:').strip().replace('"', '').replace("'", ''))
+                print(size_t)
+                thumb_size = (size_t, size_t)
+                print(f'{thumb_size=}')
             elif arg[0:3] == 'ss:':
-                size_s = int(arg.removeprefix('ss:').strip())
-                SMALL_SIZE = (size_s, size_s)
+                size_s = int(arg.removeprefix('ss:').strip().replace('"', '').replace("'", ''))
+                print(size_s)
+                small_size = (size_s, size_s)
+                print(f'{small_size=}')
             elif arg[0:3] == 'sm:':
-                size_m = int(arg.removeprefix('sm:').strip())
-                MEDIUM_SIZE = (size_m, size_m)
+                size_m = int(arg.removeprefix('sm:').strip().replace('"', '').replace("'", ''))
+                print(size_m)
+                medium_size = (size_m, size_m)
+                print(f'{medium_size=}')
             elif arg[0:3] == 'sl:':
-                size_l = int(arg.removeprefix('sl:').strip())
-                LARGE_SIZE = (size_l, size_l)
+                size_l = int(arg.removeprefix('sl:').strip().replace('"', '').replace("'", ''))
+                print(size_l)
+                large_size = (size_l, size_l)
+                print(f'{large_size=}')
             elif arg[0:2] == 'f:':
                 directory = arg.removeprefix('f:').strip()
             elif arg[0:5] == 'from:':
@@ -99,22 +111,25 @@ def main():
 
             if make_thumb:
                 thumb = rgb_im.copy()
-                thumb.thumbnail(THUMB_SIZE)
+                thumb.thumbnail(thumb_size)
                 thumb_name =  prefix + '_thumb' + file_type_to
                 thumb.save(thumb_name)
                 print(thumb_name)
             if make_small:
-                small = rgb_im.resize(SMALL_SIZE)
-                small_name =  prefix + '_s' + file_type_to
+                small = rgb_im.copy()
+                small.thumbnail(small_size)
+                small_name = prefix + '_s' + file_type_to
                 small.save(small_name)
                 print(small_name)
             if make_medium:
-                medium = rgb_im.resize(MEDIUM_SIZE)
+                medium = rgb_im.copy()
+                medium.thumbnail(medium_size)
                 medium_name = prefix +'_m' + file_type_to
                 medium.save(medium_name)
                 print(medium_name)
             if make_large:
-                large = rgb_im.resize(LARGE_SIZE)
+                large = rgb_im.copy()
+                large.thumbnail(large_size)
                 large_name = prefix +'_l' + file_type_to
                 large.save(large_name)
                 print(large_name)
