@@ -1,0 +1,17 @@
+{
+    "DEFAULT_DIRECTORY": "",
+    "FILE_TYPE_FROM":".png",
+    "FILE_TYPE_TO":".jpg",
+    "MAKE_THUMB": false,
+    "MAKE_SMALL": false,
+    "MAKE_MEDIUM": false, 
+    "MAKE_LARGE": false,
+    "THUMB_W": 150,
+    "THUMB_H": 150,
+    "SMALL_W": 150,
+    "SMALL_H": 150,
+    "MEDIUM_W":300,
+    "MEDIUM_H":300,
+    "LARGE_W": 1024,
+    "LARGE_H": 1024
+}
