@@ -9,8 +9,8 @@
 <p>Can either use console parameters or a json settings file to provide default values / extra functionality that is desired</p>
 
 <table>
-		<td>-t | --thumb</td><td>Generates thumbnail file (default 300x300) with suffix _thumb</td></tr>
-		<tr><td>-s | --small</td><td>Generates Small file (default 300x300) with suffix _s</td></tr>
+		<td>-t | --thumb</td><td>Generates thumbnail file (default 150x150) with suffix _thumb</td></tr>
+		<tr><td>-s | --small</td><td>Generates Small file (default 150x150) with suffix _s</td></tr>
 		<tr><td>-m | --medium</td><td>Generates Medium file (default 300x300) with suffix _m</td></tr>
 		<tr><td>-l | --large</td><td>Generates Large file (default 1024x1024) with suffix _l</td></tr>
 		<tr><td>st:'%size%'</td><td>Define custom square size for thumbnail file</td></tr>
