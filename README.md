@@ -8,6 +8,8 @@
 
 <p>You can either use the following console parameters or the provided settings.json file to provide default values / extra functionality(custom non square resolutions) that are desired</p>
 
+<p>This tiny program uses python's <a href="https://g.co/kgs/sX17oL">PIL (python image library)</a>, for the conversion and supports all the image formats it supports.</p>
+
 <table>
 	<td>-t | --thumb</td><td>Generates thumbnail file (default 150x150) with suffix _thumb</td></tr>
 	<tr><td>-s | --small</td><td>Generates Small file (default 150x150) with suffix _s</td></tr>
@@ -21,5 +23,14 @@
 	<tr><td>from:'%file_type%'</td><td>Converts files to the requested type e.g.: to:'.png'</td></tr>
 	<tr><td>f:'%directory_path%'</td><td>Allow you to define the path to the directory where you want to convert</td></tr>
 </table>
-
+<h3>Example:</h3>
+<code>imageconvert -t -s -m -l st:'100' ss:'150' sm:'250' sl:'500' from:'.png' to:'.jpg' f:'C:\temp'</code>
+<p>The above would path all png files at C:\temp and create a jpg version of it, additionally it would also create
+	<ul>
+		<li>a {filename}_thumb of max 100x100</li>
+		<li>a {filename}_s of max 150x150</li>
+		<li>a {filename}_m of max 250x250</li>
+		<li>a {filename}_l of max 500x500</li>
+	</ul>
+<p>
 <p>ps. this might be useful for creating portraits for games like baldur's gate as well, however it doesn't ofc crop them</p>
