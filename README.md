@@ -12,6 +12,7 @@
 
 <p> in the table below the | means you can use either command, and %name% syntax means you need to fill in this part by yourself with the appropriate number/text/path </p>
 <table>
+	<tr><td><code>-h | --help</code></td><td>Prints out the help information</td></tr>
 	<tr><td><code>-t | --thumb</code></td><td>Generates thumbnail file (default 150x150) with suffix _thumb</td></tr>
 	<tr><td><code>-s | --small</code></td><td>Generates Small file (default 150x150) with suffix _s</td></tr>
 	<tr><td><code>-m | --medium</code></td><td>Generates Medium file (default 300x300) with suffix _m</td></tr>
