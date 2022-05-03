@@ -10,18 +10,19 @@
 
 <p>This tiny program uses python's <a href="https://g.co/kgs/sX17oL">PIL (python image library)</a>, for the conversion and supports all the image formats it supports.</p>
 
+<p> in the table below the | means you can use either command, and %name% syntax means you need to fill in this part by yourself with the appropriate number/text/path </p>
 <table>
-	<td>-t | --thumb</td><td>Generates thumbnail file (default 150x150) with suffix _thumb</td></tr>
-	<tr><td>-s | --small</td><td>Generates Small file (default 150x150) with suffix _s</td></tr>
-	<tr><td>-m | --medium</td><td>Generates Medium file (default 300x300) with suffix _m</td></tr>
-	<tr><td>-l | --large</td><td>Generates Large file (default 1024x1024) with suffix _l</td></tr>
-	<tr><td>st:'%size%'</td><td>Define custom square size for thumbnail file</td></tr>
-	<tr><td>ss:'%size%'</td><td>Define custom square size for small file</td></tr>
-	<tr><td>sm:'%size%'</td><td>Define custom square size for medium file</td></tr>
-	<tr><td>sl:'%size%'</td><td>Define custom square size for large file</td></tr>
-	<tr><td>to:'%file_type%'</td><td>Converts files from the requested type e.g.: from:'.jpg'</td></tr>
-	<tr><td>from:'%file_type%'</td><td>Converts files to the requested type e.g.: to:'.png'</td></tr>
-	<tr><td>f:'%directory_path%'</td><td>Allow you to define the path to the directory where you want to convert</td></tr>
+	<tr><td><code>-t | --thumb</code></td><td>Generates thumbnail file (default 150x150) with suffix _thumb</td></tr>
+	<tr><td><code>-s | --small</code></td><td>Generates Small file (default 150x150) with suffix _s</td></tr>
+	<tr><td><code>-m | --medium</code></td><td>Generates Medium file (default 300x300) with suffix _m</td></tr>
+	<tr><td><code>-l | --large</code></td><td>Generates Large file (default 1024x1024) with suffix _l</td></tr>
+	<tr><td><code>st:'%size%'</code></td><td>Define custom square size for thumbnail file</td></tr>
+	<tr><td><code>ss:'%size%'</code></td><td>Define custom square size for small file</td></tr>
+	<tr><td><code>sm:'%size%'</code></td><td>Define custom square size for medium file</td></tr>
+	<tr><td><code>sl:'%size%'</code></td><td>Define custom square size for large file</td></tr>
+	<tr><td><code>to:'%file_type%'</code></td><td>Converts files from the requested type e.g.: from:'.jpg'</td></tr>
+	<tr><td><code>from:'%file_type%'</code></td><td>Converts files to the requested type e.g.: to:'.png'</td></tr>
+	<tr><td><code>f:'%directory_path%'</code></td><td>Allow you to define the path to the directory where you want to convert</td></tr>
 </table>
 <h3>Example:</h3>
 <code>imageconvert -t -s -m -l st:'100' ss:'150' sm:'250' sl:'500' from:'.png' to:'.jpg' f:'C:\temp'</code>
