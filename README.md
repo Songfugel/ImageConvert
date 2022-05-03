@@ -1,12 +1,12 @@
-# ImageConverter
+# ImagePatchConverter
 
-<p>Simple commandline image patch converter and thumbnail maker that uses settings file and commandline arguments for extra functionality.</p>
+<p>Simple commandline image patch converter and thumbnail maker that uses settings file and commandline arguments for extra functionality that I made to prepare a website's image gallery images quickly to the right format and to make all the required thumbnails and differently sized versions for lazy-loading/bandwith saving/different sized GUI elements</p>
 
-<p>Can make Thumb, S/M/L file versions and change image filetype</p>
+<p>It can easily make separate Thumb, S/M/L file versions and change image filetype for all files in a folder non-destructively working with copies of the original</p>
 
 <p>Also provides thumbnail, medium and large file size conservions, which are especially useful for platforms like WordPress</p>
 
-<p>Can either use console parameters or a json settings file to provide default values / extra functionality that is desired</p>
+<p>You can either use the following console parameters or the provided settings.json file to provide default values / extra functionality(custom non square resolutions) that are desired</p>
 
 <table>
 		<td>-t | --thumb</td><td>Generates thumbnail file (default 150x150) with suffix _thumb</td></tr>
