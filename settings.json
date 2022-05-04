@@ -1,6 +1,6 @@
 {
     "DEFAULT_DIRECTORY": "",
-    "FILE_TYPE_FROM":".png",
+    "FILE_TYPE_FROM":".jpg",
     "FILE_TYPE_TO":".jpg",
     "MAKE_THUMB": false,
     "MAKE_SMALL": false,
